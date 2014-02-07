@@ -44,3 +44,22 @@ function anagrammedName(name) {
 		return name;
 	}
 }
+function projectClick(e) {
+	console.log("Project clicked!")
+	//prevent the page from reloading
+	e.preventDefault();
+	
+	//in an event listener, $(this) is the element that fired
+	//the event
+	var name = $(this).text();
+	var newname = anagrammedName(name);
+	$(this).append(newname);
+}
+
+function updateProject(e) {
+	var projectID = $('#project').val();
+	$(projectID).animate({width: $('#width').val()});
+	
+	var newText = $('#description').val();
+	$(projectID + " .project-description").text(newText);
+}
